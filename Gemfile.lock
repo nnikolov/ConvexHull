@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     convex_hull (0.0.1)
-      rails (~> 4.2.10)
+      rails (>= 4.2.10)
 
 GEM
   remote: https://rubygems.org/
