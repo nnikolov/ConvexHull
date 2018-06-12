@@ -8,8 +8,8 @@ class Point
 
   # Calculate the angle this point and the lowest_yx_coordinate point make with the x-axis
   def angle(lowest_yx_coordinate)
-    dy = y - lowest_yx_coordinate.y
-    dx = x - lowest_yx_coordinate.x
+    dy = y.round(5) - lowest_yx_coordinate.y.round(5)
+    dx = x.round(5) - lowest_yx_coordinate.x.round(5)
     Math::atan2(dy, dx)
   end
 

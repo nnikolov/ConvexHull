@@ -15,7 +15,8 @@ class Shape
   attr_accessor :hull_points
 
   def self.create(points)
-    s = Shape.new(points: points.map { |p| Point.new(x: p[0], y: p[1]) })
+    #s = Shape.new(points: points.uniq.map { |p| Point.new(x: p[0].round(5), y: p[1].round(5)) })
+    s = Shape.new(points: points.uniq.map { |p| Point.new(x: p[0], y: p[1]) })
     s.sort_points
     s
   end
@@ -64,7 +65,7 @@ class Shape
   # Returns true if the points make a left turn
   # For more info: https://en.wikipedia.org/wiki/Graham_scan
   def hull_point?(p1, p2, p3)
-    (p2.x - p1.x)*(p3.y - p1.y) - (p2.y - p1.y)*(p3.x - p1.x) > 0
+    (p2.x.round(5) - p1.x.round(5))*(p3.y.round(5) - p1.y.round(5)) - (p2.y.round(5) - p1.y.round(5))*(p3.x.round(5) - p1.x.round(5)) > 0
   end
 
   # If a point is passed to check_point, it is added to @hull_points and is used in the check
